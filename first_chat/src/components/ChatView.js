@@ -1,42 +1,45 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSmile, faPaperclip, faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import MyMessage from './MyMessage';
+import { useEffect } from 'react';
 
+const ChatView = (props) =>{
+    const [messages, setMessage] = React.useState({mess:[]});
 
-const ChatView = props =>{
-    const [messages, setMessage] = React.useState({messages:[
-        {
-          id:1,
-          text:'Default message 1',
-        },
-        {
-          id:2,
-          text:'Default message 2',
-        },
-      ]});
-
-      const addTask=(text)=>{
-        const task={
-            id: messages.messages.length +1,
+      const addMessage=(text)=>{
+        const newMess={
+            id: messages.mess.length +1,
             text:text,
         }
         setMessage(prevState=>({
-          messages: [...prevState.messages, task]
+          mess: [...prevState.mess, newMess]
         }))
       }
 
     function handleKeyPress(e){
         if(e.key === 'Enter'){
             const newMessage = e.target.value;
-            addTask(newMessage)
-            e.target.value="";
+            if(newMessage!==""){
+                addMessage(newMessage)
+                e.target.value="";
+            }
+            else{
+                alert("You cannot send an empty message");
+            }
         }
     }
-    const texts = [...messages.messages].map(task=>(
-        <div key={task.id}>
-            <p>{task.text}</p>
-        </div>
-    ));
+
+    useEffect(()=>{
+        const data = localStorage.getItem("my-messages");
+        if(data){
+            setMessage(JSON.parse(data));
+        }
+    }, [])
+
+    useEffect(()=>{
+        localStorage.setItem("my-messages", JSON.stringify(messages));
+    })
     
     return(
         <>
@@ -45,7 +48,8 @@ const ChatView = props =>{
                 <button onClick={props.onClick}> <FontAwesomeIcon icon={faArrowCircleLeft}/></button>
                 <p><span></span> JERONIMO</p>
             </div>
-            <div className="center"><div key={texts.id}>{texts}</div></div>
+
+            <MyMessage messages={messages}></MyMessage>
             <div className="downBar">
                 <FontAwesomeIcon icon={faSmile} style={{color:  "grey"} }/>
                 <input type="text" className="message" placeholder="type something..." onKeyPress={handleKeyPress}/>

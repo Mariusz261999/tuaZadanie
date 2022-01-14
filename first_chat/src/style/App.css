@@ -1,15 +1,15 @@
 .App{
   width: 100vw;
   height: 100vh;
-background-color: gray;
+background-color: rgb(235, 235, 235);
 }
 .square{
   position: absolute;
   background-color: rgb(239 239 239);
-  bottom: 70px;
+  bottom: 80px;
+  right: 80px;
   height: 600px;
   width: 350px;
-  right: 50px;
   transition: all 2s;
 }
 .chatbutton{
@@ -18,6 +18,9 @@ background-color: gray;
   right: 30px;
   height: 50px;
   width: 50px;
+  padding:5px;
+  background-color: white;
+  border-radius: 50%;
 }
 .chatbutton:hover{
   cursor: pointer;
@@ -66,6 +69,7 @@ background-color: gray;
   height: 30px;
   border-style: none;
   margin: 0px 5px;
+  padding: 0px 10px; 
 }
 .center{
   overflow: scroll;
@@ -73,4 +77,27 @@ background-color: gray;
   flex: 1 1 0%;
   overflow: hidden auto;
   padding: 10px 20px;
+}
+.myMessages{
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-bottom: 10px;
+}
+.myMessages img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.myMessage{
+  width: auto;
+  background-color: white;
+  text-align: right;
+  padding: 15px 20px;
+  margin: 10px 0px;
+  border-radius: 20px 0 20px 20px;
+}
+.myMessage p{
+  margin: 0px;
 }
