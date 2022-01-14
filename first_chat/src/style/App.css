@@ -78,26 +78,46 @@ background-color: rgb(235, 235, 235);
   overflow: hidden auto;
   padding: 10px 20px;
 }
-.myMessages{
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  padding-bottom: 10px;
-}
 .myMessages img{
   height: 50px;
   width: 50px;
   border-radius: 50%;
 }
+.myWrapper{
+  display: flex;
+  flex-direction: row-reverse;
+}
 .myMessage{
-  width: auto;
-  background-color: white;
-  text-align: right;
-  padding: 15px 20px;
-  margin: 10px 0px;
-  border-radius: 20px 0 20px 20px;
+  background: white;
+  box-shadow: none;
+  border-radius: 24px 0px 24px 24px;
+  justify-content: flex-end;
+  padding: 11px 16px;
+  overflow-wrap: break-word;
+  margin: 5px 0px;
 }
 .myMessage p{
   margin: 0px;
 }
+.bigione{
+  position: fixed;
+  top: 835px;
+  left: 790px;
+}
+.botWrapper{
+  display: flex;
+  flex-direction: row;
+}
+.botMessage{
+  background: #201e1e;
+  box-shadow: none;
+  border-radius: 0px 24px 24px 24px;
+  justify-content: flex-end;
+  padding: 11px 16px;
+  overflow-wrap: break-word;
+  margin: 5px 0px;
+}
+.botMessage p{
+  margin: 0;
+  color: white;
+  }
