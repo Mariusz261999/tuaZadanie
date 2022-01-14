@@ -4,18 +4,37 @@ import { faSmile, faPaperclip, faArrowCircleLeft } from '@fortawesome/free-solid
 
 
 const ChatView = props =>{
-    let [state, setState] = React.useState("");
+    const [messages, setMessage] = React.useState({messages:[
+        {
+          id:1,
+          text:'Default message 1',
+        },
+        {
+          id:2,
+          text:'Default message 2',
+        },
+      ]});
+
+      const addTask=(text)=>{
+        const task={
+            id: messages.messages.length +1,
+            text:text,
+        }
+        setMessage(prevState=>({
+          messages: [...prevState.messages, task]
+        }))
+      }
 
     function handleKeyPress(e){
         if(e.key === 'Enter'){
             const newMessage = e.target.value;
-            setState(prev => [...prev, newMessage]);
-             e.target.value="";
+            addTask(newMessage)
+            e.target.value="";
         }
     }
-    const texts = [...state].map(text=>(
-        <div>
-            <p>{text}</p>
+    const texts = [...messages.messages].map(task=>(
+        <div key={task.id}>
+            <p>{task.text}</p>
         </div>
     ));
     
@@ -26,7 +45,7 @@ const ChatView = props =>{
                 <button onClick={props.onClick}> <FontAwesomeIcon icon={faArrowCircleLeft}/></button>
                 <p><span></span> JERONIMO</p>
             </div>
-            <div className="center">{texts}</div>
+            <div className="center"><div key={texts.id}>{texts}</div></div>
             <div className="downBar">
                 <FontAwesomeIcon icon={faSmile} style={{color:  "grey"} }/>
                 <input type="text" className="message" placeholder="type something..." onKeyPress={handleKeyPress}/>
