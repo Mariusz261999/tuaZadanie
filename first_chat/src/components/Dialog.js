@@ -1,15 +1,19 @@
 import React from 'react';
+import { useEffect } from 'react';
 
-const MyMessage = props => {
+const Dialog = props => {
     const texts = [...props.messages.mess].map(mess=>(
-        console.log(mess.firstMessage),
         mess.isMyMessage===true ?
             mess.firstMessage===true? 
-                <div className='myWrapper' key={mess.id}>
-                    <p>Zdjęcie</p>
+                <div key={mess.id}>
+                <div className='userPhoto'>
+                        <img src="https://www.seekpng.com/png/full/356-3562377_personal-user.png" alt=""/>
+                    </div>
+                <div className='myWrapper' > 
                     <div className="myMessage" >
                         <p>{mess.text}</p>
                     </div>
+                </div>
                 </div>
             : 
                 <div className='myWrapper' key={mess.id}>
@@ -20,11 +24,15 @@ const MyMessage = props => {
                 </div>
         : 
             mess.firstMessage===true?
+                <div key={mess.id}>
+                <div className='botPhoto'>
+                        <img src="https://www.nicepng.com/png/detail/207-2077371_bots-instagram-logo-round-blue.png" alt=""/>
+                </div>
                 <div className='botWrapper' key={mess.id} >
-                    <p>Zdjęcie</p>
                     <div className="botMessage">
                         <p>{mess.text}</p>
                     </div>      
+                </div>
                 </div>
             :
                 <div className='botWrapper' key={mess.id} >
@@ -33,15 +41,18 @@ const MyMessage = props => {
                     </div>      
                 </div>
     ));
+    useEffect(()=>{
+        var objDiv = document.querySelector('.center');
+        objDiv.scrollTop = objDiv.scrollHeight;
+    })
     return(
         <>
-        {console.log(props.messages)}
            <div className='center'>
-               <div className='myMessages'>{texts}</div>
+               <div className='Messages'>{texts}</div>
             </div> 
         </>
     )
 
 }
 
-export default MyMessage
+export default Dialog

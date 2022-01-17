@@ -1,7 +1,7 @@
 .App{
   width: 100vw;
   height: 100vh;
-background-color: rgb(235, 235, 235);
+background-color: rgb(219 224 235);
 }
 .square{
   position: absolute;
@@ -72,16 +72,21 @@ background-color: rgb(235, 235, 235);
   padding: 0px 10px; 
 }
 .center{
+  box-sizing: border-box;
   overflow: scroll;
   height: 500px;
   flex: 1 1 0%;
   overflow: hidden auto;
   padding: 10px 20px;
 }
-.myMessages img{
+.Messages img{
   height: 50px;
   width: 50px;
   border-radius: 50%;
+}
+.userPhoto{
+  display: flex;
+  place-content: end;
 }
 .myWrapper{
   display: flex;
@@ -99,9 +104,9 @@ background-color: rgb(235, 235, 235);
 .myMessage p{
   margin: 0px;
 }
-.bigione{
+.botInput{
   position: fixed;
-  top: 835px;
+  top: 750px;
   left: 790px;
 }
 .botWrapper{
@@ -109,7 +114,7 @@ background-color: rgb(235, 235, 235);
   flex-direction: row;
 }
 .botMessage{
-  background: #201e1e;
+  background: #3b414a;
   box-shadow: none;
   border-radius: 0px 24px 24px 24px;
   justify-content: flex-end;
@@ -120,4 +125,10 @@ background-color: rgb(235, 235, 235);
 .botMessage p{
   margin: 0;
   color: white;
-  }
+}
+.botPhoto{
+display: flex;
+}
+.botPhoto img{
+  width: 60px;
+}

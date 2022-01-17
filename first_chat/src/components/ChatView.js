@@ -1,7 +1,7 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSmile, faPaperclip, faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
-import MyMessage from './MyMessage';
+import Dialog from './Dialog';
+import AppBar from './AppBar';
+import BottomBar from './BottomBar';
 import { useEffect } from 'react';
 
 const ChatView = (props) =>{
@@ -9,7 +9,6 @@ const ChatView = (props) =>{
 
     const addMessage=(text, isMyMessage)=>{
         if(messages.mess.length>0){
-            console.log(messages.mess[messages.mess.length-1].isMyMessage);
             if((messages.mess[messages.mess.length-1].isMyMessage===true && isMyMessage===true) || (messages.mess[messages.mess.length-1].isMyMessage===false && isMyMessage===false)){
                 const newMess={
                     id: messages.mess.length +1,
@@ -45,7 +44,8 @@ const ChatView = (props) =>{
         }
         
     }
-    function handleKeyPress(e){
+
+    const handleKeyPress=(e)=>{
         if(e.key === 'Enter'){
             const newMessage = e.target.value;
             if(newMessage!==""){
@@ -57,7 +57,7 @@ const ChatView = (props) =>{
             }
         }
     }
-    function handleKeyPresse(e){
+    const handleKeyPresse=(e)=>{
         if(e.key === 'Enter'){
             const newMessage = e.target.value;
             if(newMessage!==""){
@@ -84,19 +84,15 @@ const ChatView = (props) =>{
     return(
         <>
             <div className='square'> 
-            <div className="appBar">
-                <button onClick={props.onClick}> <FontAwesomeIcon icon={faArrowCircleLeft}/></button>
-                <p><span></span> JERONIMO</p>
-            </div>
+            
+            <AppBar onClick={props.onClick}></AppBar>
+            <Dialog messages={messages}></Dialog>
+            <BottomBar onKeyPress={handleKeyPress}></BottomBar>
 
-            <MyMessage messages={messages}></MyMessage>
-
-            <div className="downBar">
-                <FontAwesomeIcon icon={faSmile} style={{color:  "grey"} }/>
-                <input type="text" className="message" placeholder="type something..." onKeyPress={handleKeyPress}/>
-                <FontAwesomeIcon icon={faPaperclip} style={{color:  "grey"} }/>
+            <div className='botInput'>
+                <p>Bot message</p>
+                <input type="text" placeholder="type something..." onKeyPress={handleKeyPresse}/>
             </div>
-            <input type="text" className='bigione' placeholder="type something..." onKeyPress={handleKeyPresse}/>
             </div>
         </>
          )
