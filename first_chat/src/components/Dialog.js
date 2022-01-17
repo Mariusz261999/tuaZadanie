@@ -4,8 +4,7 @@ import { useEffect } from 'react';
 const Dialog = props => {
     const texts = [...props.messages.mess].map(mess=>(
         mess.isMyMessage===true ?
-            mess.firstMessage===true? 
-                <div key={mess.id}>
+                <div key={mess.id} className='myDIV'>
                 <div className='userPhoto'>
                         <img src="https://www.seekpng.com/png/full/356-3562377_personal-user.png" alt=""/>
                     </div>
@@ -15,18 +14,11 @@ const Dialog = props => {
                     </div>
                 </div>
                 </div>
-            : 
-                <div className='myWrapper' key={mess.id}>
-                <div className="myMessage" >
-                    <p>{mess.text}</p>
-                    <p>{mess.firstMessage}</p>
-                </div>
-                </div>
+            
         : 
-            mess.firstMessage===true?
-                <div key={mess.id}>
+                <div key={mess.id} className='botDIV'>
                 <div className='botPhoto'>
-                        <img src="https://www.nicepng.com/png/detail/207-2077371_bots-instagram-logo-round-blue.png" alt=""/>
+                        <img src={props.avatar} alt=""/>
                 </div>
                 <div className='botWrapper' key={mess.id} >
                     <div className="botMessage">
@@ -34,12 +26,7 @@ const Dialog = props => {
                     </div>      
                 </div>
                 </div>
-            :
-                <div className='botWrapper' key={mess.id} >
-                    <div className="botMessage">
-                        <p>{mess.text}</p>
-                    </div>      
-                </div>
+            
     ));
     useEffect(()=>{
         var objDiv = document.querySelector('.center');

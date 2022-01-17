@@ -9,7 +9,7 @@ const App=()=> {
       setCurrent(current= !current);
     } 
     return (
-      <>  
+      <>
         <div className="App">
           <SwitchButton className="chatbutton" onClick={hanldeClick}/>
           {current ?<ChatView onClick={hanldeClick}/> : null}

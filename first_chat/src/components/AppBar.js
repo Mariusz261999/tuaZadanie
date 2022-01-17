@@ -9,7 +9,7 @@ const AppBar = props =>{
         <>
          <div className="appBar">
                 <button onClick={props.onClick}> <FontAwesomeIcon icon={faArrowCircleLeft}/></button>
-                <p><span></span> JERONIMO</p>
+                <p><span></span> {props.botName}</p>
             </div>
         </>
          )

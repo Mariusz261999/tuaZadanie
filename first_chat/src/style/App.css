@@ -132,3 +132,9 @@ display: flex;
 .botPhoto img{
   width: 60px;
 }
+.botDIV + .botDIV .botPhoto{
+  display: none;
+}
+.myDIV + .myDIV .userPhoto{
+  display: none;
+}
