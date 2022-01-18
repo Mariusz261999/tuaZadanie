@@ -6,7 +6,7 @@ import ChatView from './ChatView';
 const App=()=> {
   let  [current, setCurrent] = React.useState(false);
     function hanldeClick() {
-      setCurrent(current= !current);
+      setCurrent(current=!current);
     } 
     return (
       <>

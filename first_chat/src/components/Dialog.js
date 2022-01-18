@@ -14,7 +14,6 @@ const Dialog = props => {
                     </div>
                 </div>
                 </div>
-            
         : 
                 <div key={mess.id} className='botDIV'>
                 <div className='botPhoto'>

@@ -9,42 +9,19 @@ const ChatView = (props) =>{
     const [authorization, setAuthorization] = React.useState();
     const [botName, setBotName] = React.useState();
     const [avatar, setAvatar] = React.useState();
+    const messageAPI = 'https://actionbot-demo.eu-de.mybluemix.net/test-api/message';
+    const authorizationAPI = 'https://actionbot-demo.eu-de.mybluemix.net/test-api/auth';
 
     const addMessage=(text, isMyMessage)=>{
-        if(messages.mess.length>0){
-            if((messages.mess[messages.mess.length-1].isMyMessage===true && isMyMessage===true) || (messages.mess[messages.mess.length-1].isMyMessage===false && isMyMessage===false)){
                 const newMess={
                     id: Math.floor(Math.random() * 1000)*Date.now(),
-                    text:text,
-                    isMyMessage: isMyMessage,
+                    text,
+                    isMyMessage,
                 }
                 setMessage(prevState=>({
                     mess: [...prevState.mess, newMess]
                 }))
-            } else{
-                const newMess={
-                    id: Math.floor(Math.random() * 1000)*Date.now(),
-                    text:text,
-                    isMyMessage: isMyMessage,
-                }
-                setMessage(prevState=>({
-                    mess: [...prevState.mess, newMess]
-                }))
-            }
         }
-        else{
-            const newMess={
-                id: Math.floor(Math.random() * 1000)*Date.now(),
-                text:text,
-                isMyMessage: isMyMessage,
-            }
-            setMessage(prevState=>({
-                mess: [...prevState.mess, newMess]
-            }))
-        }
-        
-    }
-
     const sendMessage=(e)=>{
         if(e.key === 'Enter'){
             const newMessage = e.target.value;
@@ -54,19 +31,22 @@ const ChatView = (props) =>{
                 const requestOptions = {
                     method: 'POST',
                     headers: { 'Authorization': authorization },
-                    body: JSON.stringify({ text: "ok "})
+                    body: JSON.stringify({ text: "text"})
                 };
-                 fetch('https://actionbot-demo.eu-de.mybluemix.net/test-api/message', requestOptions)
+                 fetch(messageAPI, requestOptions)
+                    .then(response => {
+                        if(response.ok){
+                        return response;
+                    }
+                        throw Error(response.status);
+                    })
                     .then(response => response.json())
                     .then(data  => {
-                     console.log(data);
-                     console.log(data.messages.length);
-                     let a= data.messages.length;
-                     for (let i = 0; i < a; i++) {
-                        addMessage(data.messages[i].value, false);
+                     for (let i = 0; i < data.messages.length; i++) {
+                        addMessage(data.messages[0].value, false);
                       }
-                      console.log(messages);
                     })
+                    .catch(error => console.log(error))
             }
             else{
                 alert("You cannot send an empty message");
@@ -83,22 +63,29 @@ const ChatView = (props) =>{
         if(data){
             setMessage(JSON.parse(data));
         }
+        
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ user: 'test', password: 'test123' })
         };
-        fetch('https://actionbot-demo.eu-de.mybluemix.net/test-api/auth', requestOptions)
+        fetch(authorizationAPI, requestOptions)
+            .then(response => {
+                if(response.ok){
+                return response;
+            }
+                throw Error(response.status);
+            })
             .then(response => response.json())
             .then(data  => {
                 localStorage.setItem("authorization", JSON.stringify(data));
                 getData(data);
-            });
+            })
+            .catch(error => console.log(error))
     },[])
     useEffect(()=>{
         localStorage.setItem("my-messages", JSON.stringify(messages));
     }) 
-
 
       return(
         <>
@@ -108,6 +95,6 @@ const ChatView = (props) =>{
             <BottomBar onKeyPress={sendMessage}></BottomBar>
             </div>
         </>
-         )
+        )
 }
 export default ChatView
