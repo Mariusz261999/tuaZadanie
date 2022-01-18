@@ -43,7 +43,7 @@ const ChatView = (props) =>{
                     .then(response => response.json())
                     .then(data  => {
                      for (let i = 0; i < data.messages.length; i++) {
-                        addMessage(data.messages[0].value, false);
+                        addMessage(data.messages[i].value, false);
                       }
                     })
                     .catch(error => console.log(error))
