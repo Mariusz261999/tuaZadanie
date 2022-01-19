@@ -4,13 +4,15 @@ import AppBar from "./AppBar";
 import BottomBar from "./BottomBar";
 import { useEffect, useState } from "react";
 import StorageService from "./StorageService";
+import ApiService from "./ApiService";
 
 const ChatView = ({ onClick }) => {
   const [messages, setMessages] = useState({ allMessages: [] });
   const [authorization, setAuthorization] = useState("default");
-  const [botName, setBotName] = useState("Botname");
+  const [botName, setBotName] = useState("boTname");
   const [avatar, setAvatar] = useState("default");
   const storage = new StorageService();
+  const apiService = new ApiService();
 
   const messageAPI =
     "https://actionbot-demo.eu-de.mybluemix.net/test-api/message";
@@ -24,7 +26,7 @@ const ChatView = ({ onClick }) => {
       isMyMessage,
     };
     setMessages((prevState) => ({
-      allMessages: [...prevState, newMessage],
+      allMessages: [...prevState.allMessages, newMessage],
     }));
   };
 
@@ -60,26 +62,26 @@ const ChatView = ({ onClick }) => {
     }
   };
 
-  const sendAuthorization = () => {
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ user: "test", password: "test123" }),
-    };
-    fetch(authorizationAPI, requestOptions)
-      .then((response) => {
-        if (response.ok) {
-          return response;
-        }
-        throw Error(response.status);
-      })
-      .then((response) => response.json())
-      .then((data) => {
-        storage.setAuthorizationData({ data });
-        setData(data);
-      })
-      .catch((error) => console.log(error));
-  };
+  // const sendAuthorization = () => {
+  //   const requestOptions = {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({ user: "test", password: "test123" }),
+  //   };
+  //   fetch(authorizationAPI, requestOptions)
+  //     .then((response) => {
+  //       if (response.ok) {
+  //         return response;
+  //       }
+  //       throw Error(response.status);
+  //     })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       storage.setAuthorizationData({ data });
+  //       setData(data);
+  //     })
+  //     .catch((error) => console.log(error));
+  // };
 
   const setData = ({ token, botData }) => {
     setAuthorization(token);
@@ -93,7 +95,9 @@ const ChatView = ({ onClick }) => {
       setMessages(data);
     }
     if (storage.getAuthorizationData() === null) {
-      sendAuthorization();
+      const data = apiService.sendAuthorization();
+      console.log(data);
+      setData(data);
     } else {
       setData(storage.getAuthorizationData());
     }
