@@ -1,22 +1,22 @@
-import React from 'react';
-import '../style/App.css';
-import SwitchButton from './SwitchButton';
-import ChatView from './ChatView';
+import React from "react";
+import "../style/App.css";
+import SwitchButton from "./SwitchButton";
+import ChatView from "./ChatView";
+import { useState } from "react";
 
-const App=()=> {
-  let  [current, setCurrent] = React.useState(false);
-    function hanldeClick() {
-      setCurrent(current=!current);
-    } 
-    return (
-      <>
-        <div className="App">
-          <SwitchButton className="chatbutton" onClick={hanldeClick}/>
-          {current ?<ChatView onClick={hanldeClick}/> : null}
-        </div>
-      </>
-    )
-  
-}
+const App = () => {
+  const [isChatVisible, setChatvisible] = useState(false);
+  function hanldeClick() {
+    setChatvisible((isChatVisible) => !isChatVisible);
+  }
+  return (
+    <>
+      <div className="App">
+        <SwitchButton onClick={hanldeClick} />
+        {isChatVisible && <ChatView onClick={hanldeClick} />}
+      </div>
+    </>
+  );
+};
 
 export default App;
