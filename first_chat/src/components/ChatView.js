@@ -11,7 +11,6 @@ const ChatView = ({ onClick }) => {
   const [authorization, setAuthorization] = useState("default");
   const [botName, setBotName] = useState("boTname");
   const [avatar, setAvatar] = useState("default");
-  const storage = new StorageService();
   const apiService = new ApiService();
 
   const addMessage = ({ text, isMyMessage }) => {
@@ -51,6 +50,8 @@ const ChatView = ({ onClick }) => {
   };
 
   useEffect(() => {
+    const storage = new StorageService();
+    const apiService = new ApiService();
     const messagesData = storage.getMessagesData();
     const authorizationData = storage.getAuthorizationData();
     if (messagesData) {
@@ -66,8 +67,9 @@ const ChatView = ({ onClick }) => {
   }, []);
 
   useEffect(() => {
+    const storage = new StorageService();
     storage.setMessagesData(messages);
-  }, [messages, storage]);
+  }, [messages]);
 
   return (
     <div className="ChatView">

@@ -71,7 +71,7 @@ background-color: rgb(219 224 235);
   margin: 0px 5px;
   padding: 0px 10px; 
 }
-.center{
+.dialog{
   box-sizing: border-box;
   overflow: scroll;
   height: 500px;
@@ -92,7 +92,7 @@ background-color: rgb(219 224 235);
   display: flex;
   flex-direction: row-reverse;
 }
-.myMessage{
+.myMessageWrapper{
   background: white;
   box-shadow: none;
   border-radius: 24px 0px 24px 24px;
@@ -101,7 +101,7 @@ background-color: rgb(219 224 235);
   overflow-wrap: break-word;
   margin: 5px 0px;
 }
-.myMessage p{
+.myMessageWrapper p{
   margin: 0px;
 }
 .botInput{
@@ -113,7 +113,7 @@ background-color: rgb(219 224 235);
   display: flex;
   flex-direction: row;
 }
-.botMessage{
+.botMessageWrapper{
   background: #3b414a;
   box-shadow: none;
   border-radius: 0px 24px 24px 24px;
@@ -122,7 +122,7 @@ background-color: rgb(219 224 235);
   overflow-wrap: break-word;
   margin: 5px 0px;
 }
-.botMessage p{
+.botMessageWrapper p{
   margin: 0;
   color: white;
 }
@@ -132,10 +132,10 @@ display: flex;
 .botPhoto img{
   width: 60px;
 }
-.botMessageWrapper + .botMessageWrapper .botPhoto{
+.botMessage + .botMessage .botPhoto{
   display: none;
 }
-.myMessageWrapper + .myMessageWrapper .myPhoto{
+.myMessage + .myMessage .myPhoto{
   display: none;
 }
 .faSmile{

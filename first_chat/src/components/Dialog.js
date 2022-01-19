@@ -12,11 +12,11 @@ const Dialog = ({ messages, avatar }) => {
     )
   );
   useEffect(() => {
-    var messegesContainer = document.querySelector(".center");
+    var messegesContainer = document.querySelector(".dialog");
     messegesContainer.scrollTop = messegesContainer.scrollHeight;
   }, [textsComponents]);
   return (
-    <div className="center">
+    <div className="dialog">
       <div className="Messages">{textsComponents}</div>
     </div>
   );

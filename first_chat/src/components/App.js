@@ -10,12 +10,10 @@ const App = () => {
     setChatvisible((isChatVisible) => !isChatVisible);
   }
   return (
-    <>
-      <div className="App">
-        <SwitchButton onClick={hanldeClick} />
-        {isChatVisible && <ChatView onClick={hanldeClick} />}
-      </div>
-    </>
+    <div className="App">
+      <SwitchButton onClick={hanldeClick} />
+      {isChatVisible && <ChatView onClick={hanldeClick} />}
+    </div>
   );
 };
 

@@ -2,12 +2,12 @@ import React from "react";
 
 const BotMessage = ({ botPhoto, text }) => {
   return (
-    <div className="botMessageWrapper">
+    <div className="botMessage">
       <div className="botPhoto">
         <img src={botPhoto} alt="" />
       </div>
       <div className="botWrapper">
-        <div className="botMessage">
+        <div className="botMessageWrapper">
           <p>{text}</p>
         </div>
       </div>
