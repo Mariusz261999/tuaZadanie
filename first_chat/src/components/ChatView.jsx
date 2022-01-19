@@ -3,8 +3,10 @@ import Dialog from "./Dialog";
 import AppBar from "./AppBar";
 import BottomBar from "./BottomBar";
 import { useEffect, useState } from "react";
-import StorageService from "./StorageService";
-import ApiService from "./ApiService";
+import StorageService from "../services/StorageService";
+import ApiService from "../services/ApiService";
+import { ChatViewStyled } from "../style/ChatView.styled";
+
 
 const ChatView = ({ onClick }) => {
   const [messages, setMessages] = useState({ allMessages: [] });
@@ -72,11 +74,11 @@ const ChatView = ({ onClick }) => {
   }, [messages]);
 
   return (
-    <div className="ChatView">
+    <ChatViewStyled>
       <AppBar onClick={onClick} botName={botName} />
       <Dialog messages={messages} avatar={avatar} />
       <BottomBar onKeyPress={sendMessage} />
-    </div>
+    </ChatViewStyled>
   );
 };
 export default ChatView;

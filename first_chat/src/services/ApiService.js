@@ -7,11 +7,13 @@ const authorizationAPI =
 class ApiService {
   sendAuthorization = () => {
     const storage = new StorageService();
+
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user: "test", password: "test123" }),
     };
+
     return fetch(authorizationAPI, requestOptions)
       .then((response) => {
         if (response.ok) {

@@ -1,19 +1,21 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSmile, faPaperclip } from "@fortawesome/free-solid-svg-icons";
+import { BottomBarStyled, InputMessage } from "../style/BottomBar.styled";
+
 
 const BottomBar = ({ onKeyPress }) => {
   return (
-    <div className="bottomBar">
+    <BottomBarStyled>
       <FontAwesomeIcon icon={faSmile} className="faSmile" />
-      <input
+      <InputMessage
         type="text"
         className="message"
         placeholder="type something..."
         onKeyPress={onKeyPress}
       />
       <FontAwesomeIcon icon={faPaperclip} className="faPaperclip" />
-    </div>
+    </BottomBarStyled>
   );
 };
 export default BottomBar;

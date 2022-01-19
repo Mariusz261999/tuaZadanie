@@ -1,13 +1,13 @@
 import React from "react";
+import { SwitchButtonStyled } from "../style/SwitchButton.styled";
 
 const SwitchButton = ({ onClick }) => {
   return (
-    <img
+    <SwitchButtonStyled
       src="https://cdn.liveagent.com/app/uploads/2020/07/LiveAgent-academy-free-live-chat-software.svg"
-      className="switchButton"
       alt="switch Button"
       onClick={onClick}
-    ></img>
+    ></SwitchButtonStyled>
   );
 };
 export default SwitchButton;
