@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const DialogStyled = styled.div`
-  ${(props) => ({
+export const DialogStyled = styled.div`
+  ${() => ({
     boxSizing: " border-box",
     overflow: "scroll",
     height: "500px",
@@ -10,5 +10,3 @@ const DialogStyled = styled.div`
     padding: " 10px 20px",
   })}
 `;
-
-export {DialogStyled};

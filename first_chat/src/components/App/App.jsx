@@ -1,8 +1,8 @@
 import React from "react";
-import SwitchButton from "./SwitchButton";
-import ChatView from "./ChatView";
+import SwitchButton from "../SwitchButton/SwitchButton";
+import ChatView from "../ChatView/ChatView";
 import { useState } from "react";
-import {AppStyled} from "../style/App.styled.jsx";
+import {AppStyled} from "./App.styled.jsx";
 
 const App = () => {
   const [isChatVisible, setChatvisible] = useState(false);

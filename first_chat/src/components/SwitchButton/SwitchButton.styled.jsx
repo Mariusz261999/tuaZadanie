@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const SwitchButtonStyled = styled.img`
-  ${(props) => ({
+export const SwitchButtonStyled = styled.img`
+  ${() => ({
     position: "absolute",
     bottom: "10px",
     right: "30px",
@@ -15,5 +15,3 @@ const SwitchButtonStyled = styled.img`
     },
   })}
 `;
-
-export {SwitchButtonStyled};

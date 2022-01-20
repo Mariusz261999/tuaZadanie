@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const ChatViewStyled = styled.div`
-  ${(props) => ({
+export const ChatViewStyled = styled.div`
+  ${() => ({
     position: "absolute",
     backgroundColor: "rgb(239 239 239)",
     bottom: " 80px",
@@ -11,5 +11,3 @@ const ChatViewStyled = styled.div`
     transition: "all 2s",
   })}
 `;
-
-export {ChatViewStyled};

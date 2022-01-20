@@ -1,33 +1,33 @@
 import styled from "styled-components";
 
-const MyMessageStyled = styled.div`
-  ${(props) => ({})}
+export const MyMessageStyled = styled.div`
+  ${() => ({})}
 `;
 
-const MyPhoto = styled.div`
-  ${(props) => ({
+export const MyPhoto = styled.div`
+  ${() => ({
     display: "flex !important",
     placeContent: "end",
   })}
 `;
 
-const MyWrapper = styled.div`
-  ${(props) => ({
+export const MyWrapper = styled.div`
+  ${() => ({
     display: "flex",
     flexDirection: "row-reverse",
   })}
 `;
 
-const ImgPhoto = styled.img`
-  ${(props) => ({
+export const ImgPhoto = styled.img`
+  ${() => ({
     height: "50px",
     width: "50px",
     borderRadius: "50%",
   })}
 `;
 
-const MyMessageWrapper = styled.div`
-  ${(props) => ({
+export const MyMessageWrapper = styled.div`
+  ${() => ({
     background: "white",
     boxShadow: "none",
     borderRadius: "24px 0px 24px 24px",
@@ -38,9 +38,8 @@ const MyMessageWrapper = styled.div`
   })}
 `;
 
-const Text = styled.p`
-  ${(props) => ({
+export const Text = styled.p`
+  ${() => ({
     margin: "0",
   })}
 `;
-export {MyMessageStyled, MyPhoto, MyWrapper, Text, MyMessageWrapper,  ImgPhoto}

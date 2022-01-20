@@ -1,11 +1,11 @@
 import React from "react";
-import Dialog from "./Dialog";
-import AppBar from "./AppBar";
-import BottomBar from "./BottomBar";
+import Dialog from "../Dialog/Dialog";
+import AppBar from "../AppBar/AppBar";
+import BottomBar from "../BottomBar/BottomBar";
 import { useEffect, useState } from "react";
-import StorageService from "../services/StorageService";
-import ApiService from "../services/ApiService";
-import { ChatViewStyled } from "../style/ChatView.styled";
+import StorageService from "../../services/StorageService";
+import ApiService from "../../services/ApiService";
+import { ChatViewStyled } from "./ChatView.styled";
 
 
 const ChatView = ({ onClick }) => {

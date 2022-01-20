@@ -1,5 +1,5 @@
 import React from "react";
-import {MyMessageStyled, MyPhoto, MyWrapper, Text, MyMessageWrapper,  ImgPhoto} from "../style/MyMessage.styled"
+import {MyMessageStyled, MyPhoto, MyWrapper, Text, MyMessageWrapper,  ImgPhoto} from "./MyMessage.styled"
 
 
 const MyMessage = ({ text, withAvatar}) => {

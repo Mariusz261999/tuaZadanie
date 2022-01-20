@@ -1,27 +1,27 @@
 import styled from "styled-components";
 
-const BotMessageStyled = styled.div`
-  ${(props) => ({
+export const BotMessageStyled = styled.div`
+  ${() => ({
     display: "flex",
     flexDirection: "column",
   })}
 `;
 
-const BotPhotoContainer = styled.div`
-  ${(props) => ({
+export const BotPhotoContainer = styled.div`
+  ${() => ({
     display: "flex",
   })}
 `;
 
-const BotPhoto = styled.img`
-  ${(props) => ({
+export const BotPhoto = styled.img`
+  ${() => ({
     width: "50px",
     height: "50px",
     borderRadius: "50%",
   })}
 `;
 
-const BotMessageWrapper = styled.div`
+export const BotMessageWrapper = styled.div`
   ${(props) => ({
     background: "#3b414a",
     boxShadow: "none",
@@ -33,11 +33,9 @@ const BotMessageWrapper = styled.div`
   })}
 `;
 
-const Text = styled.p`
+export const Text = styled.p`
   ${(props) => ({
     margin: "0",
     color: "white",
   })}
 `;
-
-export {Text, BotMessageWrapper, BotPhoto, BotPhotoContainer, BotMessageStyled};

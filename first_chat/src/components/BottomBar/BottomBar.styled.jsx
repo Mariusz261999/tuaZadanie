@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const BottomBarStyled = styled.div`
-  ${(props) => ({
+export const BottomBarStyled = styled.div`
+  ${() => ({
     backgroundColor: "white",
     position: "absolute",
     bottom: "0px",
@@ -13,8 +13,8 @@ const BottomBarStyled = styled.div`
   })}
 `;
 
-const InputMessage = styled.input`
-  ${(props) => ({
+export const InputMessage = styled.input`
+  ${() => ({
     width: "100%",
     height: "30px",
     borderStyle: " none",
@@ -22,5 +22,3 @@ const InputMessage = styled.input`
     padding: " 0px 10px",
   })}
 `;
-
-export{BottomBarStyled, InputMessage};

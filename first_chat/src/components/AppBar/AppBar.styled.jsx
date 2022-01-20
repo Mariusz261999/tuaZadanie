@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const AppBarStyled = styled.div`
-  ${(props) => ({
+export const AppBarStyled = styled.div`
+  ${() => ({
     backgroundColor: " white",
     height: "50px",
     display: "flex",
@@ -10,8 +10,8 @@ const AppBarStyled = styled.div`
   })}
 `;
 
-const BackButton = styled.button`
-  ${(props) => ({
+export const BackButton = styled.button`
+  ${() => ({
     backgroundColor: "white",
     borderStyle: "none",
     ":hover": {
@@ -20,15 +20,15 @@ const BackButton = styled.button`
   })}
 `;
 
-const BotName = styled.p`
-  ${(props) => ({
+export const BotName = styled.p`
+  ${() => ({
     width: "100%",
     marginRight: "30px",
   })}
 `;
 
-const ActiveDot = styled.span`
-  ${(props) => ({
+export const ActiveDot = styled.span`
+  ${() => ({
     display: "inline-block",
     width: "10px",
     height: "10px",
@@ -36,5 +36,3 @@ const ActiveDot = styled.span`
     borderRadius: "50%",
   })}
 `;
-
-export {AppBarStyled, BackButton, BotName, ActiveDot}

@@ -1,5 +1,5 @@
 import React from "react";
-import { SwitchButtonStyled } from "../style/SwitchButton.styled";
+import { SwitchButtonStyled } from "./SwitchButton.styled";
 
 const SwitchButton = ({ onClick }) => {
   return (

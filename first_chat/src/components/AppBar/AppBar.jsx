@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
-import {AppBarStyled, BackButton, BotName, ActiveDot} from "../style/AppBar.styled.jsx"
+import {AppBarStyled, BackButton, BotName, ActiveDot} from "./AppBar.styled.jsx"
 
 
 const AppBar = ({ onClick, botName }) => {

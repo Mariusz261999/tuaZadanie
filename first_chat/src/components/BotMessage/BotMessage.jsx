@@ -1,5 +1,5 @@
 import React from "react";
-import {Text, BotMessageWrapper, BotPhoto, BotPhotoContainer, BotMessageStyled} from "../style/BotMessage.styled"
+import {Text, BotMessageWrapper, BotPhoto, BotPhotoContainer, BotMessageStyled} from "./BotMessage.styled"
 
 const BotMessage = ({ botPhoto, text, withAvatar }) => {
   return (
