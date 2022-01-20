@@ -1,7 +1,10 @@
 import React from "react";
-import Dialog from "../Dialog/Dialog";
-import AppBar from "../AppBar/AppBar";
-import BottomBar from "../BottomBar/BottomBar";
+// @ts-ignore
+import Dialog from "../Dialog/Dialog.tsx";
+// @ts-ignore
+import AppBar from "../AppBar/AppBar.tsx";
+// @ts-ignore
+import BottomBar from "../BottomBar/BottomBar.tsx";
 import { useEffect, useState } from "react";
 import StorageService from "../../services/StorageService";
 import ApiService from "../../services/ApiService";

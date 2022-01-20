@@ -1,8 +1,12 @@
 import React from "react";
 import {MyMessageStyled, MyPhoto, MyWrapper, Text, MyMessageWrapper,  ImgPhoto} from "./MyMessage.styled"
 
+interface MyMessageProps{
+  text: string;
+  withAvatar: boolean;
+}
 
-const MyMessage = ({ text, withAvatar}) => {
+const MyMessage:React.FC<MyMessageProps> = ({ text, withAvatar}) => {
   return (
     <MyMessageStyled>
       {withAvatar? 

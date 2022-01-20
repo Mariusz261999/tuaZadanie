@@ -1,19 +1,21 @@
 import React from "react";
-import SwitchButton from "../SwitchButton/SwitchButton";
-import ChatView from "../ChatView/ChatView";
+// @ts-ignore
+import SwitchButton from "../SwitchButton/SwitchButton.tsx";
+// @ts-ignore
+import ChatView from "../ChatView/ChatView.tsx";
 import { useState } from "react";
 import {AppStyled} from "./App.styled.jsx";
 
 const App = () => {
   const [isChatVisible, setChatvisible] = useState(false);
-
   function hanldeClick() {
     setChatvisible((isChatVisible) => !isChatVisible);
+    return 5;
   }
 
   return (
     <AppStyled>
-      <SwitchButton onClick={hanldeClick} />
+      <SwitchButton onClick={hanldeClick}/>
       {isChatVisible && <ChatView onClick={hanldeClick} />}
     </AppStyled>
   );

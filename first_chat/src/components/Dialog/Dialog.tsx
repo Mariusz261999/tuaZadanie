@@ -1,8 +1,11 @@
 import React from "react";
 import { useEffect } from "react";
-import MyMessage from "../MyMessage/MyMessage";
-import BotMessage from "../BotMessage/BotMessage";
+// @ts-ignore
+import MyMessage from "../MyMessage/MyMessage.tsx";
+// @ts-ignore
+import BotMessage from "../BotMessage/BotMessage.tsx";
 import { DialogStyled } from "./Dialog.styled";
+
 
 const Dialog = ({ messages, avatar }) => {
   let lastMessageIsMyMessage = false;

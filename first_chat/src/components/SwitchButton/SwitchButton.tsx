@@ -1,7 +1,11 @@
 import React from "react";
 import { SwitchButtonStyled } from "./SwitchButton.styled";
 
-const SwitchButton = ({ onClick }) => {
+interface ISwitchButton{
+  onClick: ()=> void;
+}
+
+const SwitchButton = ({onClick}: ISwitchButton) =>{
   return (
     <SwitchButtonStyled
       src="https://cdn.liveagent.com/app/uploads/2020/07/LiveAgent-academy-free-live-chat-software.svg"
