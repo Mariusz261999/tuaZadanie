@@ -6,11 +6,11 @@ import ChatView from "../ChatView/ChatView.tsx";
 import { useState } from "react";
 import {AppStyled} from "./App.styled.jsx";
 
+
 const App = () => {
   const [isChatVisible, setChatvisible] = useState(false);
   function hanldeClick() {
     setChatvisible((isChatVisible) => !isChatVisible);
-    return 5;
   }
 
   return (

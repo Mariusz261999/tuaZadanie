@@ -3,8 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSmile, faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import { BottomBarStyled, InputMessage } from "./BottomBar.styled";
 
+interface BottomBarInterface{
+  onKeyPress: ()=>void;
+}
 
-const BottomBar = ({ onKeyPress }) => {
+const BottomBar = ({ onKeyPress }:BottomBarInterface) => {
   return (
     <BottomBarStyled>
       <FontAwesomeIcon icon={faSmile} className="faSmile" />

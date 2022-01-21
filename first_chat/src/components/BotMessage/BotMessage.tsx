@@ -1,17 +1,25 @@
 import React from "react";
 import {Text, BotMessageWrapper, BotPhoto, BotPhotoContainer, BotMessageStyled} from "./BotMessage.styled"
 
-const BotMessage = ({ botPhoto, text, withAvatar }) => {
+interface BotMessageInterface{
+  botPhoto: string;
+  text: string;
+  withAvatar: boolean;
+}
+
+const BotMessage = ({ botPhoto, text, withAvatar }:BotMessageInterface) => {
   return (
     <BotMessageStyled>
-      {withAvatar? 
+      {text===undefined}
+      {withAvatar?
       <BotPhotoContainer>
         <BotPhoto src={botPhoto} alt="" />
       </BotPhotoContainer> 
       : null}
+      {text===undefined? null :
       <BotMessageWrapper>
         <Text>{text}</Text>
-      </BotMessageWrapper>
+      </BotMessageWrapper>}
     </BotMessageStyled>
   );
 };

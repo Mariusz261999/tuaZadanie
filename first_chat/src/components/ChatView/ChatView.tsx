@@ -10,15 +10,34 @@ import StorageService from "../../services/StorageService";
 import ApiService from "../../services/ApiService";
 import { ChatViewStyled } from "./ChatView.styled";
 
+interface ChatViewProps{
+onClick:()=>void;
+}
+interface AddMessageProps{
+  text:string,
+  isMyMessage: boolean
+}
+interface valueInterface{
+  value: string
+}
+interface setDataInterface{
+  token: string,
+  botData:{
+    name:string,
+    avatar:string,
+  }
+}
 
-const ChatView = ({ onClick }) => {
-  const [messages, setMessages] = useState({ allMessages: [] });
+
+
+const ChatView = ({ onClick }:ChatViewProps) => {
+  const [messages, setMessages] = useState( {allMessages: [{}]} );
   const [authorization, setAuthorization] = useState("default");
   const [botName, setBotName] = useState("boTname");
   const [avatar, setAvatar] = useState("default");
   const apiService = new ApiService();
 
-  const addMessage = ({ text, isMyMessage }) => {
+  const addMessage = ({ text, isMyMessage }:AddMessageProps) => {
     const newMessage = {
       id: Math.floor(Math.random() * 1000) * Date.now(),
       text,
@@ -29,7 +48,7 @@ const ChatView = ({ onClick }) => {
     }));
   };
 
-  const sendMessage = (e) => {
+  const sendMessage = (e: { key: string; target: { value: string; }; }) => {
     if (e.key === "Enter") {
       const inputMessage = e.target.value;
       if (inputMessage !== "") {
@@ -38,7 +57,7 @@ const ChatView = ({ onClick }) => {
         apiService
           .getBotResponse(authorization)
           .then((data) =>
-            data.messages.forEach(({ value }) =>
+            data.messages.forEach(({value}:valueInterface) =>
               addMessage({ text: value, isMyMessage: false })
             )
           );
@@ -48,7 +67,7 @@ const ChatView = ({ onClick }) => {
     }
   };
 
-  const setData = ({ token, botData }) => {
+  const setData = ({ token, botData }:setDataInterface) => {
     setAuthorization(token);
     setBotName(botData.name);
     setAvatar(botData.avatar);
